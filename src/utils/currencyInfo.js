@@ -36,7 +36,7 @@ const obj = {
 const currencyInfo = new Map()
 
 for (let elem in obj) {
-    currencyInfo.set(obj[elem], elem)
+    currencyInfo.set(elem, obj[elem])
 }
 
 export default currencyInfo
