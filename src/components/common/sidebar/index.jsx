@@ -1,6 +1,8 @@
 import React from 'react'
 import { SideNav, SideNavItem, Button } from 'react-materialize'
 import styles from './index.module.css'
+import { Link } from 'react-router-dom'
+
 
 export default function index() {
     return (
@@ -11,34 +13,23 @@ export default function index() {
                 paddingTop: '100px',
                 paddingLeft: '10px',
             }}>
-                <li
-                >
-                    <Button
-                        flat
-                        node="button"
-                        waves="light"
+                <Link to="/">
+                    <li
+                        className={styles.linkStyle}
                     >
-                        <span className={styles.linkButton}>Link 1</span>
-
-                    </Button>
-                </li>
-                <li>
-                    <Button
-                        flat
-                        node="button"
-                        waves="light"
-                    >
-                        <span className={styles.linkButton}>Link 2</span>
-                    </Button>
-                </li>
-                <li>
-                    <Button
-                        flat
-                        node="button"
-                        waves="light"
-                    >
-                        <span className={styles.linkButton}>Link 3</span>
-                    </Button></li>
+                        <span className={styles.linkButton}>Home</span>
+                    </li>
+                </Link>
+                <Link to="/chart">
+                    <li className={styles.linkStyle}>
+                        <span className={styles.linkButton}>Compare Currencies</span>
+                    </li>
+                </Link>
+                <Link to="/history">
+                    <li className={styles.linkStyle}>
+                        <span className={styles.linkButton}>History</span>
+                    </li>
+                </Link>
             </ul>
         </div>
     )
