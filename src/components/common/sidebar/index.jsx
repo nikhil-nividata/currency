@@ -1,41 +1,45 @@
 import React from 'react'
-import { SideNav, SideNavItem } from 'react-materialize'
+import { SideNav, SideNavItem, Button } from 'react-materialize'
+import styles from './index.module.css'
 
 export default function index() {
     return (
-        <div>
-            <SideNav
-                id="sidenav-10"
-            >
-
-                <div
-                    style={{
-                        height: '20vh'
-                    }}
+        <div className={styles.sideBar}>
+            <ul style={{
+                margin: 0,
+                height: '100%',
+                paddingTop: '100px',
+                paddingLeft: '10px',
+            }}>
+                <li
                 >
+                    <Button
+                        flat
+                        node="button"
+                        waves="light"
+                    >
+                        <span className={styles.linkButton}>Link 1</span>
 
-                </div>
-
-                <SideNavItem
-                    href="#"
-                >
-                    Link 1
-          </SideNavItem>
-
-                <SideNavItem
-                    href="#"
-                >
-                    Link 2
-          </SideNavItem>
-
-                <SideNavItem
-                    href="#"
-                >
-                    Link 3
-          </SideNavItem>
-
-            </SideNav>
-
+                    </Button>
+                </li>
+                <li>
+                    <Button
+                        flat
+                        node="button"
+                        waves="light"
+                    >
+                        <span className={styles.linkButton}>Link 2</span>
+                    </Button>
+                </li>
+                <li>
+                    <Button
+                        flat
+                        node="button"
+                        waves="light"
+                    >
+                        <span className={styles.linkButton}>Link 3</span>
+                    </Button></li>
+            </ul>
         </div>
     )
 }

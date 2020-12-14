@@ -28,13 +28,34 @@ class App extends Component {
   render() {
     const { selectData, currencyExchangeData } = this.state
     return (
-      <div>
-
+      <div style={{
+        height: '100%',
+        maxHeight: '100%',
+        overflow: 'hidden'
+      }}>
         <NavBar />
-        <SideBar />
-        <HomePage
+        <div style={{
+          height: '100%'
+        }}>
+          <Row style={{
+            height: '100%',
+            overflow: 'hidden'
+          }}>
+            <Col m={2} style={{ padding: 0, height: '100%' }}>
+              <SideBar />
+            </Col>
+            <Col m={10}>
+              <HomePage
+                currencyExchangeData={currencyExchangeData}
+              />
+            </Col>
+
+          </Row>
+        </div>
+
+        {/* <HomePage
           currencyExchangeData={currencyExchangeData}
-        />
+        /> */}
 
       </div>
     )
