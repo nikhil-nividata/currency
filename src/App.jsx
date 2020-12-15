@@ -40,18 +40,8 @@ class App extends Component {
           <div style={{
             height: '100%'
           }}>
-            <Row style={{
-              height: '100%',
-              overflow: 'hidden'
-            }}>
-              <Col m={2} style={{ padding: 0, height: '100%' }}>
-                <SideBar />
-              </Col>
-              <Col m={10}>
-                <Routes />
-              </Col>
-
-            </Row>
+            <SideBar />
+            <Routes currencyExchangeData={currencyExchangeData} />
           </div>
         </Router>
       </div>

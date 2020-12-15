@@ -6,31 +6,34 @@ import { Link } from 'react-router-dom'
 
 export default function index() {
     return (
-        <div className={styles.sideBar}>
-            <ul style={{
-                margin: 0,
-                height: '100%',
-                paddingTop: '100px',
-                paddingLeft: '10px',
-            }}>
-                <Link to="/">
-                    <li
-                        className={styles.linkStyle}
-                    >
-                        <span className={styles.linkButton}>Home</span>
-                    </li>
-                </Link>
-                <Link to="/chart">
-                    <li className={styles.linkStyle}>
-                        <span className={styles.linkButton}>Compare Currencies</span>
-                    </li>
-                </Link>
-                <Link to="/history">
-                    <li className={styles.linkStyle}>
-                        <span className={styles.linkButton}>History</span>
-                    </li>
-                </Link>
-            </ul>
-        </div>
+        <SideNav
+            id="sideNav"
+            options={{
+                edge: 'left',
+                draggable: true
+            }}
+            trigger={<Button className={styles.trigger} node="button" id="sideNavToggler">Toggle</Button>}
+        >
+            <div style={{ height: '20vh' }}></div>
+            <Link to="/">
+                <SideNavItem >
+                    <span style={{ color: 'black', fontSize: '1.4rem' }}>Home</span>
+
+                </SideNavItem>
+            </Link>
+            <Link to="/chart">
+                <SideNavItem >
+                    <span style={{ color: 'black', fontSize: '1.4rem' }}>Comparing Currencies</span>
+
+                </SideNavItem>
+            </Link>
+            <Link to="/history">
+                <SideNavItem >
+                    <span style={{ color: 'black', fontSize: '1.4rem' }}>History</span>
+
+                </SideNavItem>
+            </Link>
+
+        </SideNav>
     )
 }

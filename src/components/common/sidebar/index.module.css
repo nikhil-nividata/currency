@@ -22,3 +22,7 @@
     background-color: rgba(155, 155, 155, 0.315);
     transition: 300ms;
 }
+
+.trigger {
+    display: none !important;
+}
