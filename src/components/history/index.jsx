@@ -3,6 +3,34 @@ import Chart from "chart.js";
 import { Select } from "react-materialize";
 import CurrencyInfo from "../../utils/currencyInfo";
 
+const colors = [
+  "rgba(255, 99, 132, 0.2)",
+  "rgba(54, 162, 235, 0.2)",
+  "rgba(255, 206, 86, 0.2)",
+  "rgba(75, 192, 192, 0.2)",
+  "rgba(153, 102, 255, 0.2)",
+  "rgba(255, 159, 64, 0.2)",
+  "rgba(240, 248, 255,0.6)",
+  "rgba(127, 255, 212,0.3)",
+  "rgba(255, 235, 205,0.2)",
+  "rgba(0, 255, 255,0.2)",
+  "rgba(255, 248, 220,0.6)",
+  "rgba(255, 0, 255, 0.2)",
+  "rgba(255, 215, 0, 0.25)",
+  "rgba(124, 252, 0, 0.25)",
+  "rgba(255, 160, 122, 0.2)",
+  "rgba(250, 50, 230, 0.2)",
+  "rgba(221, 160, 221, 0.2)",
+  "rgba(176, 224, 230, 0.2)",
+  "rgba(70, 130, 180, 0.2)",
+  "rgba(192, 192, 192, 0.2)",
+  "rgba(216, 191, 216, 0.3)",
+  "rgba(100, 58, 58, 0.2)",
+  "rgba(0, 255, 0, 0.2)",
+  "rgba(25, 250, 240, 0.2)",
+  "rgba(105, 105, 105, 0.3)",
+];
+
 export default class index extends Component {
   constructor(props) {
     super(props);
@@ -59,11 +87,14 @@ export default class index extends Component {
     const dates = [];
     const datasets = [];
     const { ratesArray, selectedCurrencies } = this.state;
+    let colorIndx = 0;
     selectedCurrencies.forEach((elem) => {
       datasets.push({
         label: CurrencyInfo.get(elem),
         data: [],
         fill: false,
+        borderColor: colors[colorIndx],
+        backgroundColor: colors[colorIndx++],
       });
     });
     ratesArray.forEach((elem) => {
