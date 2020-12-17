@@ -1,6 +1,6 @@
-import React from 'react'
-import { Select } from 'react-materialize'
-import CurrencyInfo from '../../../utils/currencyInfo'
+import React from "react";
+import { Select } from "react-materialize";
+import CurrencyInfo from "../../../utils/currencyInfo";
 
 export default function index({ onChange, value, name }) {
   return (
@@ -11,9 +11,9 @@ export default function index({ onChange, value, name }) {
         multiple={false}
         onChange={onChange}
         options={{
-          classes: '',
+          classes: "",
           dropdownOptions: {
-            alignment: 'left',
+            alignment: "left",
             autoTrigger: true,
             closeOnClick: true,
             constrainWidth: true,
@@ -24,36 +24,29 @@ export default function index({ onChange, value, name }) {
             onCloseStart: null,
             onOpenEnd: null,
             onOpenStart: null,
-            outDuration: 250
-          }
+            outDuration: 250,
+          },
         }}
         value={value}
       >
-        <option
-          disabled
-          value=""
-        >
+        <option disabled value="">
           Choose Currency
         </option>
 
-
-        {
-          Array.from(CurrencyInfo.keys()).map(
-            key => {
-              return (<option
-                style={{
-                  color: 'black'
-                }}
-                value={key}
-                key={key}
-              >
-                {CurrencyInfo.get(key)}
-              </option>)
-            }
-          )
-        }
-
+        {Array.from(CurrencyInfo.keys()).map((key) => {
+          return (
+            <option
+              style={{
+                color: "black",
+              }}
+              value={key}
+              key={key}
+            >
+              {CurrencyInfo.get(key)}
+            </option>
+          );
+        })}
       </Select>
     </div>
-  )
+  );
 }

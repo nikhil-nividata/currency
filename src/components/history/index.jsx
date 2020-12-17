@@ -37,6 +37,7 @@ export default class index extends Component {
     this.state = {
       historicData: [],
       ratesArray: [],
+      baseCurrency: "",
       selectedCurrencies: new Set(),
     };
   }
