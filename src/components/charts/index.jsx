@@ -40,7 +40,7 @@ export default class index extends Component {
     return (
       <div>
         <div className={styles.chartContainer}>
-          <h4>Compare Different Currencies</h4>
+          <h4 className="center-align">Compare Different Currencies</h4>
           <div
             style={{
               display: "flex",
