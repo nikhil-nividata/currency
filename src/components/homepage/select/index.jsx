@@ -2,13 +2,13 @@ import React from "react";
 import { Select } from "react-materialize";
 import CurrencyInfo from "../../../utils/currencyInfo";
 
-export default function index({ onChange, value, name }) {
+export default function index({ onChange, value, name, multiple }) {
   return (
     <div>
       <Select
-        id="select1"
+        id={name}
         name={name}
-        multiple={false}
+        multiple={multiple || false}
         onChange={onChange}
         options={{
           classes: "",
