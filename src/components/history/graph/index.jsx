@@ -74,7 +74,10 @@ class DrawGraph extends Component {
       });
     });
     ratesArray.forEach((elem) => {
-      dates.push(elem["date"].toDateString());
+      const date = `${elem["date"].getDate()}-${elem["date"].getMonth()}-${elem[
+        "date"
+      ].getFullYear()}`;
+      dates.push(date);
       let i = 0;
       selectedCurrencies.forEach((curr) => {
         datasets[i++].data.push(elem[curr] === undefined ? 1 : elem[curr]);
