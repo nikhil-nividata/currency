@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Chart from "chart.js";
 import Select from "../../homepage/select";
 import CurrencyInfo from "../../../utils/currencyInfo";
+import { Card } from "react-materialize";
 
 const colors = [
   "rgba(255, 99, 132, 0.2)",
@@ -98,7 +99,7 @@ class DrawGraph extends Component {
   render() {
     const { selectedCurrencies } = this.state;
     return (
-      <div>
+      <Card>
         <Select
           onChange={this.handleSelect}
           value={Array.from(selectedCurrencies.values())}
@@ -106,7 +107,7 @@ class DrawGraph extends Component {
           multiple={true}
         />
         <canvas id="lineGraph" />
-      </div>
+      </Card>
     );
   }
 }

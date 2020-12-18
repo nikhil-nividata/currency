@@ -124,8 +124,13 @@ class DrawChart extends Component {
   }
 
   render() {
-    const { chartId } = this.props;
-    return <div>{<canvas id={chartId} width="400" height="160" />}</div>;
+    const { chartId, chartLabel } = this.props;
+    return (
+      <div>
+        <h6 className="center-align">{chartLabel}</h6>
+        {<canvas id={chartId} width="400" height="160" />}
+      </div>
+    );
   }
 }
 

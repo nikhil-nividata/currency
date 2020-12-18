@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Row, Col, Preloader } from "react-materialize";
 import DrawGraph from "./graph";
 import Select from "../homepage/select";
+import styles from "./index.module.css";
 import DatePicker from "./datepicker";
 
 export default class index extends Component {
@@ -123,43 +124,46 @@ export default class index extends Component {
     maxDate.setDate(maxDate.getDate() - 1);
     console.log(this.state);
     return (
-      <div class="container">
-        <Row>
-          <Col m={4}>
-            <Select value={baseCurrency} onChange={this.changeBaseCurrency} />
-          </Col>
+      <div className={styles.historyContainer}>
+        <div class="container">
+          <h4>Compare historical data of Currencies</h4>
+          <Row>
+            <Col m={4}>
+              <Select value={baseCurrency} onChange={this.changeBaseCurrency} />
+            </Col>
 
-          {baseCurrency !== "" ? (
-            <>
-              <Col m={4}>
-                <DatePicker
-                  name="startDate"
-                  placeholder="Start Date"
-                  maxDate={maxDate}
-                  onChange={this.changeStartDate}
-                  value={startDate}
-                />
-              </Col>
-              <Col m={4}>
-                <DatePicker
-                  name="endDate"
-                  placeholder="End Date"
-                  maxDate={maxDate}
-                  minDate={minDate}
-                  onChange={this.changeEndDate}
-                  value={endDate}
-                />
-              </Col>
-            </>
+            {baseCurrency !== "" ? (
+              <>
+                <Col m={4}>
+                  <DatePicker
+                    name="startDate"
+                    placeholder="Start Date"
+                    maxDate={maxDate}
+                    onChange={this.changeStartDate}
+                    value={startDate}
+                  />
+                </Col>
+                <Col m={4}>
+                  <DatePicker
+                    name="endDate"
+                    placeholder="End Date"
+                    maxDate={maxDate}
+                    minDate={minDate}
+                    onChange={this.changeEndDate}
+                    value={endDate}
+                  />
+                </Col>
+              </>
+            ) : null}
+          </Row>
+          {hasData ? (
+            isLoading ? (
+              <Preloader active flashing={false} size="big" color="green" />
+            ) : (
+              <DrawGraph ratesArray={ratesArray} />
+            )
           ) : null}
-        </Row>
-        {hasData ? (
-          isLoading ? (
-            <Preloader active flashing={false} size="big" color="green" />
-          ) : (
-            <DrawGraph ratesArray={ratesArray} />
-          )
-        ) : null}
+        </div>
       </div>
     );
   }

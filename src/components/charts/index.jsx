@@ -40,17 +40,29 @@ export default class index extends Component {
     return (
       <div>
         <div className={styles.chartContainer}>
-          <Select
-            name="baseCurrencySelector"
-            value={baseCurrency}
-            onChange={this.onChange}
-          />
+          <h4>Compare Different Currencies</h4>
+          <div
+            style={{
+              display: "flex",
+            }}
+          >
+            <h6 className="valign-wrapper" style={{ paddingRight: "20px" }}>
+              {" "}
+              Select a base Currency{" "}
+            </h6>
+            <Select
+              name="baseCurrencySelector"
+              value={baseCurrency}
+              onChange={this.onChange}
+            />
+          </div>
           {baseCurrency !== "" ? (
             <>
               <Card className="container">
                 <ChartDrawer
                   label={baseCurrency}
                   chartId="chartFirst"
+                  chartLabel={`Currencies edging low wrt ${baseCurrency}`}
                   currencyExchangeData={currencyExchangeData.slice(0, 21)}
                 />
               </Card>
@@ -58,16 +70,19 @@ export default class index extends Component {
                 <ChartDrawer
                   label={baseCurrency}
                   chartId="chartSecond"
+                  chartLabel={`Currencies edging moderately wrt ${baseCurrency}`}
                   currencyExchangeData={currencyExchangeData.slice(21, 30)}
                 />
               </Card>
               <Card className="container">
                 <ChartDrawer
                   label={baseCurrency}
+                  chartLabel={`Currencies edging high wrt ${baseCurrency}`}
                   chartId="chartThird"
                   currencyExchangeData={currencyExchangeData.slice(30)}
                 />
               </Card>
+              <div style={{ height: "20px" }}></div>
             </>
           ) : null}
         </div>
