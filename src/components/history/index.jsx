@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col, Preloader } from "react-materialize";
-import DrawGraph from "./graph";
+import DrawGraph from "./graphFunc";
 import Select from "../homepage/select";
 import styles from "./index.module.css";
 import DatePicker from "./datepicker";
